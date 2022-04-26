@@ -1,0 +1,160 @@
+/*Polices import*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap');
+
+/*Theme sombre*/
+.light   { background: #eee; color: black; }
+.dark { background: #333; color: white; }
+
+.color-theme{
+    position: absolute;
+    right:0;
+    top: 0;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.color-theme svg{
+    font-size: 20px;
+}
+
+/*General style*/
+body{
+    width: min(85%, 800px);
+    margin: auto;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    transition: all 0.2s ease-in-out;
+}
+
+.container{
+    margin: 60px 0px;
+}
+
+.underline{
+    position: relative;
+    z-index: 1;
+}
+
+.underline:after{
+    display: block;
+    content:'';
+    position:absolute;
+    width:100%;
+    bottom:0;
+    left:0;
+    background:rgb(246, 250, 0);
+    z-index:-1;
+    height: 25px;
+}
+
+/*Header : titre + input*/
+.infosInput{
+    text-align: center;
+}
+
+.infosInput h1{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    text-transform: uppercase;
+}
+
+#toDoForm{
+    display: flex;
+    flex-direction: column;
+}
+
+input#toDo{
+    padding: 10px;
+    border: none;
+    box-shadow: 0px 0px 18px -15px;
+}
+
+#submitTask{
+    padding: 10px 25px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    letter-spacing: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#submitTask:hover{
+    background-color: white;
+}
+
+/*stat*/
+.stat{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Liste des tâches*/
+ul{
+    padding: 0;
+    margin:0;
+    list-style-type: none;
+}
+
+.list-items{
+    margin: 15px 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.list-items > * + * {
+    border-top: 2px solid rgb(179, 179, 179);
+}
+
+.item{
+    padding: 10px 20px;
+    font-weight: bold;
+    background: #cfcfcf;
+}
+
+.task-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-bar-title{
+    flex: 1;
+    padding: 8px;
+    margin: 0 10px;
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+}
+
+.item svg{
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.item .fa-circle, .item .fa-circle-check{
+    opacity: 1;
+}
+
+.item .fa-pen-to-square, .item .fa-trash-can{
+    opacity: 0;
+}
+
+.item:hover .fa-pen-to-square, .item:hover .fa-trash-can{
+    opacity: 1;
+}
+
+.item .fa-circle:hover, .item .fa-circle-check:hover, .item .fa-pen-to-square:hover, .item .fa-trash-can:hover{
+    opacity: 0.4;
+}
+
+/*Bouton clear liste*/
+
+.resetBtn{
+    text-align: right;
+}

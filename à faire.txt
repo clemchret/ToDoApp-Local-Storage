@@ -1,0 +1,7 @@
+- design scrollbar
+- apparation logo en sélection pour mobile
+- stockage du thème en lcoal storage
+- apparition ou nom de la barre des filtres si pas d'item
+- dev des filtres et du nombre d'items en fonction
+- bouton clear liste qui clear que la liste et pas le thème
+- nombre limite de tâches pour créer un listing ? Filre pour mettre le nombre d'items par page

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List | Clem</title>
+    
+    <link rel="stylesheet" href="normalize.css"></link>
+    <link rel="stylesheet" href="style.css"></link>
+    <script defer src="all.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body class="light">
+
+    <header>
+        <div class="container">
+            <div class="color-theme">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+            <div class="infosInput">
+                <h1>Rapel<span class="underline">tout</span></h1>
+                <form id='toDoForm'>
+                    <input type="text" id="toDo" name="toDo" placeholder="Tâche à effectuer"><br>
+                    <button id="submitTask" type="button">Valider</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="stat">
+                <div class="Number-items">5 tâches restantes</div>
+                <div class="filter">Toutes | Actives | Terminées</div>
+            </div>
+            <ul class="list-items"></ul>
+            <div class="resetBtn">
+                <button id="resetList" type="button">Réinitialiser la liste</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
