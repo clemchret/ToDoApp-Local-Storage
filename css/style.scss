@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap');
+
+/*Variables*/
+$light-background: #eee;
+$dark-background:#333;
+$light-font: #333;
+$dark-font: #eee;
+$light-task-background: #cfcfcf;
+$dark-task-background: #232323;
+
+/*Theme clair/sombre*/
+.light{
+    background: $light-background;
+    color: $light-font;
+
+    .underline:after{
+        background:rgb(246, 250, 0);
+    }
+
+    input#toDo{
+        background: transparent;
+        color: $light-font;
+        border-bottom: 2px solid $light-font;
+    }
+
+    input#toDo::placeholder{
+        color: $light-font
+    }
+
+    .filter li:after{
+        background: $light-font;
+    }
+
+    .item{
+        background: $light-task-background;
+    }
+
+    .completed{
+        
+        input{
+            opacity: 0.4;
+        }
+
+    }
+
+    #resetList, #resetCompleted{
+        color: $light-font;
+        background: transparent;
+        border: 2px solid $light-font;
+    }
+
+    #resetList:hover, #resetCompleted:hover{
+        color: $dark-font;
+        background: $light-font;
+        border: 2px solid $light-font;
+    }
+}
+
+.dark{
+    background: $dark-background; 
+    color: $dark-font;
+
+    input#toDo{
+        background: transparent;
+        color: $dark-font;
+        border-bottom: 2px solid $dark-font;
+    }
+
+    input#toDo::placeholder{
+        color: $dark-font
+    }
+
+    .task-bar{
+        color: $dark-font;
+
+        input{
+            color: $dark-font;
+        }
+    }
+    
+    .underline:after{
+        background:rgb(246, 250, 0);
+    }
+
+    .filter li:after{
+        background: $dark-font;
+    }
+
+    .item{
+        background: $dark-task-background;
+    }
+
+    .item.completed{
+        input{
+            opacity: 0.2;
+        }
+    }
+
+    #resetList, #resetCompleted{
+        color: $dark-font;
+        background: transparent;
+        border: 2px solid $dark-font;
+    }
+
+    #resetList:hover, #resetCompleted:hover{
+        color: $light-font;
+        background: $dark-font;
+        border: 2px solid $dark-font;
+    }
+}
+
+//Logo de sélection du Thème
+.color-theme{
+    position: absolute;
+    right:0;
+    top: 0;
+    padding: 15px;
+    cursor: pointer;
+
+    i{
+        font-size: 20px;
+    }
+}
+
+
+/*General style*/
+body{
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 300;
+    transition: all 0.2s ease-in-out;
+}
+
+main, header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.container{
+    margin: 30px 0px;
+    width: min(85%, 800px);
+}
+
+.underline{
+    position: relative;
+    z-index: 1;
+}
+
+.underline:after{
+    display: block;
+    content:'';
+    position:absolute;
+    width:100%;
+    bottom:0;
+    left:0;
+    z-index:-1;
+    height: 25px;
+}
+
+
+/*Header : titre + input*/
+.infosInput{
+    text-align: center;
+
+    h1{
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: 3em;
+        text-transform: uppercase;
+        margin: 1.5em 0;
+    }
+}
+
+#toDoForm{
+    display: flex;
+    flex-direction: column;
+}
+
+input#toDo{
+    padding: 10px;
+    border: none;
+}
+
+#submitTask{
+    transition: 0.3s;
+    padding: 10px 25px;
+    background: lightblue;
+    border: 2px solid lightblue;
+    border-radius: 25px;
+    cursor: pointer;
+    letter-spacing: 7px;
+    color: $dark-font;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#submitTask:hover{
+    background: #5ac6eb;
+    border: 2px solid #5ac6eb;
+    letter-spacing: 5px;
+}
+
+
+/*Filtres*/
+.stat{
+    display: none;
+    justify-content: space-between;
+}
+
+.filter li{
+    display: inline;
+    position: relative;
+}
+
+.filter li:hover{
+    cursor: pointer;
+}
+
+.filter li:after{
+    display: block;
+    content:'';
+    position:absolute;
+    transition: 0.3s;
+    width:0%;
+    bottom:0;
+    left:0;
+    z-index:-1;
+    height: 1px;
+}
+
+.filter li:hover:after{
+    width: 100%;
+}
+
+.active-filter{
+    font-weight: bold;
+}
+
+/*Liste des tâches*/
+ul{
+    padding: 0;
+    margin:0;
+    list-style-type: none;
+}
+
+.list-items{
+    margin: 15px 0;
+    border-radius: 15px;
+    overflow: hidden;
+
+    > * + * {
+        border-top: 2px solid rgb(179, 179, 179);
+    }
+    
+}
+
+.list-items.actives .item.completed{
+    opacity: 0;
+    padding: 0;
+    border: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.list-items.done .item{
+    opacity: 0;
+    padding: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.list-items.done .item.completed{
+    opacity: 1;
+    height: auto;
+    padding: 10px 20px;
+    pointer-events: all;
+}
+
+.list-items.done > .item.completed ~ .item.completed {
+    border-top: 2px solid rgb(179, 179, 179);
+}
+
+.task-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.task-bar-title{
+    flex: 1;
+    padding: 8px;
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+}
+
+.item{
+    transition: 0.4s;
+    font-weight: bold;
+
+    i{
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    :hover .fa-pen-to-square, :hover .fa-trash-alt{
+        opacity: 1;
+    }
+    
+    .fa-circle:hover, .fa-pen-to-square:hover, .fa-trash-alt:hover{
+        opacity: 0.4;
+    }
+}
+
+.completed{
+    
+    .fa-circle-check{
+        color: green;
+    }
+
+    .fa-circle-check:hover{
+        opacity: 0.4;
+    }
+    
+    .fa-pen-to-square, .fa-trash-alt{
+        display: none;
+    }
+    
+}
+
+
+/*Bouton clear liste*/
+.resetContainer{
+    display: flex;
+    flex-direction: row;
+    transition: 0.4s;
+    gap: 10px;
+
+    .resetBtn, .resetCompleted{
+        display: none;
+        flex: 1;
+        margin: 40px 0;
+    }
+    
+    #resetList, #resetCompleted{
+        transition: 0.3s;
+        padding: 10px 20px;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+// Desktop
+@media (min-width: 992px) {
+
+    .item{
+    
+        .fa-pen-to-square, .fa-trash-alt{
+            opacity: 0;
+        }
+    
+    }
+
+}

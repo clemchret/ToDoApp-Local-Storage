@@ -1,160 +1,324 @@
-/*Polices import*/
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap');
-
-/*Theme sombre*/
-.light   { background: #eee; color: black; }
-.dark { background: #333; color: white; }
-
-.color-theme{
-    position: absolute;
-    right:0;
-    top: 0;
-    padding: 15px;
-    cursor: pointer;
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap");
+/*Variables*/
+/*Theme clair/sombre*/
+.light {
+  background: #eee;
+  color: #333;
+}
+.light .underline:after {
+  background: rgb(246, 250, 0);
+}
+.light input#toDo {
+  background: transparent;
+  color: #333;
+  border-bottom: 2px solid #333;
+}
+.light input#toDo::-moz-placeholder {
+  color: #333;
+}
+.light input#toDo:-ms-input-placeholder {
+  color: #333;
+}
+.light input#toDo::placeholder {
+  color: #333;
+}
+.light .filter li:after {
+  background: #333;
+}
+.light .item {
+  background: #cfcfcf;
+}
+.light .completed input {
+  opacity: 0.4;
+}
+.light #resetList, .light #resetCompleted {
+  color: #333;
+  background: transparent;
+  border: 2px solid #333;
+}
+.light #resetList:hover, .light #resetCompleted:hover {
+  color: #eee;
+  background: #333;
+  border: 2px solid #333;
 }
 
-.color-theme svg{
-    font-size: 20px;
+.dark {
+  background: #333;
+  color: #eee;
+}
+.dark input#toDo {
+  background: transparent;
+  color: #eee;
+  border-bottom: 2px solid #eee;
+}
+.dark input#toDo::-moz-placeholder {
+  color: #eee;
+}
+.dark input#toDo:-ms-input-placeholder {
+  color: #eee;
+}
+.dark input#toDo::placeholder {
+  color: #eee;
+}
+.dark .task-bar {
+  color: #eee;
+}
+.dark .task-bar input {
+  color: #eee;
+}
+.dark .underline:after {
+  background: rgb(246, 250, 0);
+}
+.dark .filter li:after {
+  background: #eee;
+}
+.dark .item {
+  background: #232323;
+}
+.dark .item.completed input {
+  opacity: 0.2;
+}
+.dark #resetList, .dark #resetCompleted {
+  color: #eee;
+  background: transparent;
+  border: 2px solid #eee;
+}
+.dark #resetList:hover, .dark #resetCompleted:hover {
+  color: #333;
+  background: #eee;
+  border: 2px solid #eee;
+}
+
+.color-theme {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  cursor: pointer;
+}
+.color-theme i {
+  font-size: 20px;
 }
 
 /*General style*/
-body{
-    width: min(85%, 800px);
-    margin: auto;
-    font-family: 'League Spartan', sans-serif;
-    font-weight: 300;
-    transition: all 0.2s ease-in-out;
+body {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 300;
+  transition: all 0.2s ease-in-out;
 }
 
-.container{
-    margin: 60px 0px;
+main, header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.underline{
-    position: relative;
-    z-index: 1;
+.container {
+  margin: 30px 0px;
+  width: min(85%, 800px);
 }
 
-.underline:after{
-    display: block;
-    content:'';
-    position:absolute;
-    width:100%;
-    bottom:0;
-    left:0;
-    background:rgb(246, 250, 0);
-    z-index:-1;
-    height: 25px;
+.underline {
+  position: relative;
+  z-index: 1;
+}
+
+.underline:after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height: 25px;
 }
 
 /*Header : titre + input*/
-.infosInput{
-    text-align: center;
+.infosInput {
+  text-align: center;
+}
+.infosInput h1 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 3em;
+  text-transform: uppercase;
+  margin: 1.5em 0;
 }
 
-.infosInput h1{
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
-    font-size: 3em;
-    text-transform: uppercase;
+#toDoForm {
+  display: flex;
+  flex-direction: column;
 }
 
-#toDoForm{
-    display: flex;
-    flex-direction: column;
+input#toDo {
+  padding: 10px;
+  border: none;
 }
 
-input#toDo{
-    padding: 10px;
-    border: none;
-    box-shadow: 0px 0px 18px -15px;
+#submitTask {
+  transition: 0.3s;
+  padding: 10px 25px;
+  background: lightblue;
+  border: 2px solid lightblue;
+  border-radius: 25px;
+  cursor: pointer;
+  letter-spacing: 7px;
+  color: #eee;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
-#submitTask{
-    padding: 10px 25px;
-    background-color: lightblue;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    letter-spacing: 5px;
-    font-weight: 500;
-    text-transform: uppercase;
+#submitTask:hover {
+  background: #5ac6eb;
+  border: 2px solid #5ac6eb;
+  letter-spacing: 5px;
 }
 
-#submitTask:hover{
-    background-color: white;
+/*Filtres*/
+.stat {
+  display: none;
+  justify-content: space-between;
 }
 
-/*stat*/
-.stat{
-    display: flex;
-    justify-content: space-between;
+.filter li {
+  display: inline;
+  position: relative;
+}
+
+.filter li:hover {
+  cursor: pointer;
+}
+
+.filter li:after {
+  display: block;
+  content: "";
+  position: absolute;
+  transition: 0.3s;
+  width: 0%;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height: 1px;
+}
+
+.filter li:hover:after {
+  width: 100%;
+}
+
+.active-filter {
+  font-weight: bold;
 }
 
 /*Liste des tâches*/
-ul{
-    padding: 0;
-    margin:0;
-    list-style-type: none;
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
-.list-items{
-    margin: 15px 0;
-    border-radius: 15px;
-    overflow: hidden;
+.list-items {
+  margin: 15px 0;
+  border-radius: 15px;
+  overflow: hidden;
 }
-
 .list-items > * + * {
-    border-top: 2px solid rgb(179, 179, 179);
+  border-top: 2px solid rgb(179, 179, 179);
 }
 
-.item{
-    padding: 10px 20px;
-    font-weight: bold;
-    background: #cfcfcf;
+.list-items.actives .item.completed {
+  opacity: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+  pointer-events: none;
 }
 
-.task-bar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.list-items.done .item {
+  opacity: 0;
+  padding: 0;
+  height: 0;
+  pointer-events: none;
 }
 
-.task-bar-title{
-    flex: 1;
-    padding: 8px;
-    margin: 0 10px;
-    font-weight: 700;
-    background-color: transparent;
-    border: none;
+.list-items.done .item.completed {
+  opacity: 1;
+  height: auto;
+  padding: 10px 20px;
+  pointer-events: all;
 }
 
-.item svg{
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+.list-items.done > .item.completed ~ .item.completed {
+  border-top: 2px solid rgb(179, 179, 179);
 }
 
-.item .fa-circle, .item .fa-circle-check{
-    opacity: 1;
+.task-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-.item .fa-pen-to-square, .item .fa-trash-can{
-    opacity: 0;
+.task-bar-title {
+  flex: 1;
+  padding: 8px;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
 }
 
-.item:hover .fa-pen-to-square, .item:hover .fa-trash-can{
-    opacity: 1;
+.item {
+  transition: 0.4s;
+  font-weight: bold;
+}
+.item i {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.item :hover .fa-pen-to-square, .item :hover .fa-trash-alt {
+  opacity: 1;
+}
+.item .fa-circle:hover, .item .fa-pen-to-square:hover, .item .fa-trash-alt:hover {
+  opacity: 0.4;
 }
 
-.item .fa-circle:hover, .item .fa-circle-check:hover, .item .fa-pen-to-square:hover, .item .fa-trash-can:hover{
-    opacity: 0.4;
+.completed .fa-circle-check {
+  color: green;
+}
+.completed .fa-circle-check:hover {
+  opacity: 0.4;
+}
+.completed .fa-pen-to-square, .completed .fa-trash-alt {
+  display: none;
 }
 
 /*Bouton clear liste*/
-
-.resetBtn{
-    text-align: right;
+.resetContainer {
+  display: flex;
+  flex-direction: row;
+  transition: 0.4s;
+  gap: 10px;
 }
+.resetContainer .resetBtn, .resetContainer .resetCompleted {
+  display: none;
+  flex: 1;
+  margin: 40px 0;
+}
+.resetContainer #resetList, .resetContainer #resetCompleted {
+  transition: 0.3s;
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .item .fa-pen-to-square, .item .fa-trash-alt {
+    opacity: 0;
+  }
+}/*# sourceMappingURL=style.css.map */

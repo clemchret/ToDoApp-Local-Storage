@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="css/normalize.css"></link>
     <link rel="stylesheet" href="css/style.css"></link>
-    <script defer src="js/font-awesome/all.min.js"></script>
+    <link rel="stylesheet" href="font-awesome/all.min.css"></link>
     <script defer src="js/script.js"></script>
 </head>
 <body class="light">
@@ -19,10 +19,10 @@
                 <i class="fa-solid fa-moon"></i>
             </div>
             <div class="infosInput">
-                <h1>Rapel<span class="underline">tout</span></h1>
+                <h1>Forget no <span class="underline">more</span></h1>
                 <form id='toDoForm'>
                     <input type="text" id="toDo" name="toDo" placeholder="Tâche à effectuer"><br>
-                    <button id="submitTask" type="button">Valider</button>
+                    <button id="submitTask" type="submit">Valider</button>
                 </form>
             </div>
         </div>
@@ -31,12 +31,21 @@
     <main>
         <div class="container">
             <div class="stat">
-                <div class="Number-items">5 tâches restantes</div>
-                <div class="filter">Toutes | Actives | Terminées</div>
+                <div class="Number-items"></div>
+                <ul class="filter">
+                    <li id="all" class="active-filter">Toutes</li> |
+                    <li id="actives">Actives</li> |
+                    <li id="done">Terminées</li>
+                </ul>
             </div>
             <ul class="list-items"></ul>
-            <div class="resetBtn">
-                <button id="resetList" type="button">Réinitialiser la liste</button>
+            <div class="resetContainer">
+                <div class="resetCompleted">
+                    <button id="resetCompleted" type="button">Supprimer les tâches complétées</button>
+                </div>
+                <div class="resetBtn">
+                    <button id="resetList" type="button">Réinitialiser la liste</button>
+                </div>
             </div>
         </div>
     </main>
