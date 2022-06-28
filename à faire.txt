@@ -1,5 +1,4 @@
 - design scrollbar
-- apparation des icones en sélection pour mobile
 - stockage du thème en lcoal storage
 - ! soit faire en sorte de ne pas avoir deux tâches = ou faire en sorte qu'elles peuvent l'être
 - nombre limite de tâches pour créer un listing ? Filre pour mettre le nombre d'items par page

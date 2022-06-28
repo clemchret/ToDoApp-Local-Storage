@@ -207,35 +207,45 @@ input#toDo{
 .stat{
     display: none;
     justify-content: space-between;
-}
-
-.filter li{
-    display: inline;
-    position: relative;
-}
-
-.filter li:hover{
-    cursor: pointer;
-}
-
-.filter li:after{
-    display: block;
-    content:'';
-    position:absolute;
-    transition: 0.3s;
-    width:0%;
-    bottom:0;
-    left:0;
-    z-index:-1;
-    height: 1px;
-}
-
-.filter li:hover:after{
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
 }
 
 .active-filter{
     font-weight: bold;
+}
+
+.Number-items{
+    margin: 20px 0;
+}
+
+.filter{
+    
+    li{
+        display: inline;
+        position: relative;
+    }
+    
+    li:hover{
+        cursor: pointer;
+    }
+    
+    li:after{
+        display: block;
+        content:'';
+        position:absolute;
+        transition: 0.3s;
+        width:0%;
+        bottom:0;
+        left:0;
+        z-index:-1;
+        height: 1px;
+    }
+    
+    li:hover:after{
+        width: 100%;
+    }
+
 }
 
 /*Liste des tâches*/
@@ -274,7 +284,6 @@ ul{
 .list-items.done .item.completed{
     opacity: 1;
     height: auto;
-    padding: 10px 20px;
     pointer-events: all;
 }
 
@@ -288,14 +297,16 @@ ul{
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-}
 
-.task-bar-title{
-    flex: 1;
-    padding: 8px;
-    font-weight: 700;
-    background-color: transparent;
-    border: none;
+    .task-bar-title{
+        flex: 1;
+        padding: 8px;
+        font-weight: 700;
+        background-color: transparent;
+        border: none;
+        overflow: scroll
+    }
+
 }
 
 .item{
@@ -358,6 +369,16 @@ ul{
 
 // Desktop
 @media (min-width: 992px) {
+
+    .stat{
+        flex-direction: row;
+        align-items: unset;
+
+        .Number-items{
+            margin: 0;
+        }
+
+    }
 
     .item{
     

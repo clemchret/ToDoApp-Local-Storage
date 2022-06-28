@@ -182,17 +182,25 @@ input#toDo {
 .stat {
   display: none;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active-filter {
+  font-weight: bold;
+}
+
+.Number-items {
+  margin: 20px 0;
 }
 
 .filter li {
   display: inline;
   position: relative;
 }
-
 .filter li:hover {
   cursor: pointer;
 }
-
 .filter li:after {
   display: block;
   content: "";
@@ -204,13 +212,8 @@ input#toDo {
   z-index: -1;
   height: 1px;
 }
-
 .filter li:hover:after {
   width: 100%;
-}
-
-.active-filter {
-  font-weight: bold;
 }
 
 /*Liste des tâches*/
@@ -247,7 +250,6 @@ ul {
 .list-items.done .item.completed {
   opacity: 1;
   height: auto;
-  padding: 10px 20px;
   pointer-events: all;
 }
 
@@ -262,13 +264,13 @@ ul {
   align-items: center;
   padding: 10px 20px;
 }
-
-.task-bar-title {
+.task-bar .task-bar-title {
   flex: 1;
   padding: 8px;
   font-weight: 700;
   background-color: transparent;
   border: none;
+  overflow: scroll;
 }
 
 .item {
@@ -318,6 +320,14 @@ ul {
 }
 
 @media (min-width: 992px) {
+  .stat {
+    flex-direction: row;
+    align-items: unset;
+  }
+  .stat .Number-items {
+    margin: 0;
+  }
+
   .item .fa-pen-to-square, .item .fa-trash-alt {
     opacity: 0;
   }
