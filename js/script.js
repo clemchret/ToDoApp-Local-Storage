@@ -1,3 +1,27 @@
+window.onload = function() {
+    loadTheme();
+    loadTasks();
+};
+
+//Chargement thème à l'arrivée sur la page
+let item = JSON.parse(localStorage.getItem('themepref'));
+
+function loadTheme(){
+    if ( item === null) {
+        console.log('cas null')
+        return;
+    }else{
+        if(item === 'light'){
+            console.log('cas light')
+            return;
+        }else{
+            document.body.classList.toggle('light');
+            document.body.classList.toggle('dark');
+            console.log('cas dark')
+        }
+    }
+};
+
 //Theme sombre
 function setTheme () {
     document.body.classList.toggle('light');
@@ -6,6 +30,13 @@ function setTheme () {
         document.querySelector('.color-theme').innerHTML = `<i class="fa-solid fa-sun"></i>`;
     }else{
         document.querySelector('.color-theme').innerHTML = `<i class="fa-solid fa-moon"></i>`;
+    }
+
+    //Ajout de la clé en fonction du thème lors du clique
+    if(document.body.classList.contains('light')){
+        localStorage.setItem('themepref', JSON.stringify('light'));
+    }else{
+        localStorage.setItem('themepref', JSON.stringify('dark'));
     }
     
 };
@@ -81,8 +112,6 @@ function clearCompleted(){
 document.getElementById('resetCompleted').addEventListener('click', clearCompleted);
 
 
-//Checker si il y a déjà des tâches créées et les afficher si c'est le cas.
-window.onload = loadTasks;
 //On prend les tâches dans le local storage et on les convertit en tableau.
 function loadTasks(){
     let tasks = localStorage.getItem("tasks");
